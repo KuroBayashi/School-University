@@ -1,0 +1,10 @@
+To conclude, we have proposed in this paper an original controller for autonomous creatures where a simplified, however realistic model of memory is integrated into an adaptive reactive architecture.
+The main novelty of this work lies in our approach which is radically different from traditional computational architectures. 
+First, the knowledge representations are grounded on the agent's very perception, defending the idea that the power of representation is the representation itself, not the way it can be manipulated.
+Besides, these representations do not require any additional work from the animator.
+Then, this non-symbolic memory is seamlessly integrated into the controller, so that the knowledge directly participates the action-selection. Complex behaviours are then reflected by the creature's ability to take advantage of a better understanding of the environment -namely the structures and the rules that govern it- instead of relying on the animator's skills in writing scripts.
+Experiments comparing the behaviour of the agent with and without the ability to create knowledge demonstrate how a better understanding of the environment entails a better adaptation, and therefore intelligent behaviours.
+The condition is then the complexity of the environment, which is guaranteed in our study by introducing several autonomous and dynamical creatures.
+
+Considering the simple nature of the experiments presented in the paper, future work may be focused upon testing the controller's ability to be scaled up to larger environments, by using more creatures, a more complex environment, and in addition by introducing ambiguous creatures -for example a creature that looks harmless but is actually not.
+The experiments consisted in comparing the Cortexionist network to a very simple perceptron. However, more recent neural networks, such as recurrent neural networks or NEAT, introduce recurrent connections in order to endow action-selection with a notion of context. Future work plan more comparisons with these networks, in order to prove the greater effectiveness of an associative layer over recurrent connections.

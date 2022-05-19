@@ -1,0 +1,8 @@
+Traditionally, AL approaches focus on action-selection. Since action-selection consists of associating perception with action, AL considers adaptation as the ability to detect whether such an association is not relevant and hence performs changes in the controller in order to improve it.
+In this paper, one original vision of adaptation is investigated. 
+We believe the interest of a memory does not reside in the way representations are stored or can be manipulated but rather in the representations themselves, particularly how they can enhance the adaptation of the agent to the environment.
+Moreover, we postulate that the ability to create patterns of knowledge from the environment, and take advantage of them to improve action-selection may reveal intelligent behaviour, insofar as the environment allows it.
+Indeed, we assume that intelligent behaviour cannot be expected from a creature operating in a trivial environment.
+The contribution of this work is dual.
+First, we provide a methodology for integrating a memory into a reactive agent, using an approach that is primarily concerned with avoiding the weaknesses of hybrid architectures. This memory, then, must be integrated into the action-selection (e.g. does not require to be user-defined) and grounded upon perception (e.g. not symbolic).
+We then prove through experiments that memory is a bridge between complexity in the environment and intelligence of the behaviour.

@@ -1,0 +1,8 @@
+Traditionally, producing intelligent behaviours for artificial creatures involves modelling their cognitive abilities. 
+This approach raises two problems. 
+On the one hand, defining manually the agent's knowledge is a heavy and error-prone task that implies the intervention of the animator. 
+On the other hand, the relationship between cognition and intelligence has not been theoretically nor experimentally proven so far. 
+The ecological approaches provide a solution for these problems, by exploring the links between the creature, its body and its environment. 
+Using an artificial life approach, we propose an original model of memory based on the synthesis of several neuroscience theories. 
+The Cortexionist controller integrates cortex-like structure into a connectionist architecture in order to enhance the agent's adaptation in a dynamic environment, ultimately leading to the emergence of intelligent behaviour. 
+Initial experiments presented in this paper prove the validity of the model.

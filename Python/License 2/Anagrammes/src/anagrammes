@@ -1,0 +1,214 @@
+from collections import defaultdict, OrderedDict
+from unicodedata import normalize
+from codecs import open
+from itertools import product
+from timeit import default_timer
+
+
+def format_word(word):
+    """
+    Formate le mot en minuscules sans accents puis ordonne des lettres alphabetiquement
+
+    :param word: Mot a formater
+
+    :type word: string
+
+    :return: String
+    """
+    return ''.join(sorted(normalize('NFD', word).encode('ascii', 'ignore').lower().decode('ascii')))
+
+
+def load_file(fname, encoding):
+    """
+    Constuit le dictionnaire a partir d'un fichier de mots
+
+    :param fname: Emplacement du fichier
+    :param encoding: Encodage du fichier
+
+    :type fname: string
+    :type encoding: string
+
+    :return: DefaultDict
+    """
+    words_dict = defaultdict(lambda: defaultdict(list))
+
+    with open(fname, 'r', encoding=encoding) as f:
+        for word in f:
+            word = word.rstrip()
+            words_dict[len(word)][format_word(word)].append(word)
+
+    return words_dict
+
+
+def reduce_dict(words_dict, word):
+    """
+    Construit le dictionnaire reduit aux mots dont les lettres sont contenues dans le mot d'origine.
+
+    :param words_dict: Dictionnaire contenant tous les mots
+    :param word: Mot d'origine
+
+    :type words_dict: OrderecDict
+    :type word: String
+
+    :return: OrderedDict
+    """
+    def contains(origin, letters):
+        """
+        Verifie que toutes les lettres sont contenues dans le mot d'origine.
+
+        :param origin: Mot d'origine
+        :param letters: Lettres recherche
+
+        :type origin: string
+        :type letters: string
+
+        :return: Boolean
+        """
+        for letter in letters:
+            if letter in origin:
+                origin = origin.replace(letter, "", 1)
+            else:
+                return False
+        return True
+
+    return OrderedDict(sorted(
+        {n: {k: v for k, v in d.items() if contains(word, k)} for n, d in words_dict.items()}.items(),
+        key=lambda t: t[0]
+    ))
+
+
+def A1(words_dict, word, N):
+    """
+    Recherche toutes les combinaisons de mot formant une anagramme d'un mot choisi ayant au plus N mots.
+
+    :param words_dict: Dictionnaire complet
+    :param word: Mot pour lequel on recherche des anagrammes
+    :param N: Nombre maximum de mots par combinaison
+
+    :type words_dict: DefaultDict
+    :type word: String
+    :type N: Integer
+
+    :return: List
+    """
+    f_word = format_word(word)
+    f_word_len = len(f_word)
+    words_dict_reduced = reduce_dict(words_dict, f_word)
+    sol = set()
+    sol_list = set()
+
+    def build_solutions(s_list):
+        """
+        Construit la liste de toutes les solutions possibles
+
+        :param s_list: Liste des combinaisons de cle qui sont solutions
+
+        :type s_list: List
+
+        :return:
+        """
+        solutions = []
+
+        for comb_keys in s_list:
+            for comb_lists in [[words_dict_reduced[len(key)][key] for key in comb_keys]]:
+                solutions += list(product(*comb_lists))
+
+        return solutions
+
+    def ajout_possible(word, str_s):
+        """
+        Verifie que les lettres de la combinaison sont contenues dans le mot d'origine.
+
+        :param word: Mot d'origine
+        :param str_s: Lettres de la combinaison
+
+        :type word: String
+        :type str_s: String
+
+        :return: Boolean
+        """
+        for c in str_s:
+            if c in word:
+                word = word.replace(c, '', 1)
+            else:
+                return False
+        return True
+
+    def est_solution(str_s):
+        """
+        Verifie que la combinaison est solution
+
+        :param str_s: Combinaison sous forme de chaine de caractere
+
+        :type str_s: String
+
+        :return: Boolean
+        """
+        return f_word == ''.join(sorted(str_s))
+
+    def placer(p, N, s, s_list):
+        """
+        Essai de placer un nouveau mot dans la combinaison
+
+        :param p: Nombre de mot dans la combinaison
+        :param N: Nombre maximum par combinaison
+        :param s: Combinaison actuelle
+        :param s_list: Liste de toutes les solutions trouvees
+
+        :type p: Integer
+        :type N: Integer
+        :type s: List
+        :type s_list: List
+        """
+        is_sol = est_solution(''.join(s))
+
+        if is_sol or p == N:
+            if is_sol:
+                s_list.add(frozenset(sorted(s)).copy())
+        else:
+            r = f_word_len - len(''.join(s))
+            if p == N - 1:
+                if r in words_dict_reduced.keys():
+                    for f_key in words_dict_reduced[r].keys():
+                        s.add(f_key)
+                        if ajout_possible(f_word, ''.join(s)):
+                            placer(p+1, N, s, s_list)
+                        s.discard(f_key)
+            else:
+                for n in words_dict_reduced.keys():
+                    if n <= r:
+                        for f_key in words_dict_reduced[n].keys():
+                            s.add(f_key)
+                            if ajout_possible(f_word, ''.join(s)):
+                                placer(p+1, N, s, s_list)
+                            s.discard(f_key)
+
+    placer(0, N, sol, sol_list)
+
+    return build_solutions(sol_list)
+
+
+if __name__ == "__main__":
+    FILES = [('../lexiqueODS.txt', 'UTF-8'), ('../liste_de_mots_francais_frgut.txt', 'ISO-8859-1')]
+
+    # Files
+    choix = 0
+    words_dict_full = load_file(FILES[choix][0], FILES[choix][1])
+    print("Dictionnaire chargé.")
+
+    # Algo
+    w = "champolion"
+    N = 4
+    start = default_timer()
+    comb = A1(words_dict_full, w, N)
+    print(default_timer() - start)
+    print("Anagrammes de '", w, "' ayant <=", N, "mots :", len(comb), "solutions trouvées.")
+    print(comb)
+
+    w = "CAROLINEETFLORIAN"
+    N = 2
+    start = default_timer()
+    comb = A1(words_dict_full, w, N)
+    print(default_timer() - start)
+    print("Anagrammes de '", w, "' ayant <=", N, "mots :", len(comb), "solutions trouvées.")
+    print(comb)

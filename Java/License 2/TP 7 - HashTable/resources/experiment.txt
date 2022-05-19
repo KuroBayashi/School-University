@@ -1,0 +1,11 @@
+Experiments are organised in a 3D virtual environment where an agent (Agent) operates among other creatures: creatures of the same kind (Mother, Fellow) and predators (Predator).
+The agent's capacity to survive in the environment is measured through two situations. 
+In the first one, Agent is introduced with Predator. When attacked by Predator, Agent runs away then stops. After several attacks, which number depends on the initial amount of vital energy granted to Agent, it dies.
+The second situation is more complex as Mother and some Fellows are introduced into the environment to help Agent to escape from Predator. 
+In brief, Agent runs away when it collides with Predator, but also with a Fellow. As a consequence, in the absence of Mother and any kind of protection, the Agent is condemned to die sooner or later under the attacks of Predator.
+Although Agent behaves in the exact way it has been trained to, it is rather upsetting to see it unable to learn that Predator is a threat even after being attacked several times. The same conclusion is true in the context of cooperation as Agent is also unable to rely on a Fellow as long as it has not been explicitly taught to.
+Besides, surviving these situations does not require elaborate cognitive abilities but rather a better understanding of the environment. We may ask therefore what happens in similar situations if the agent is able to create and make use of inner representations?
+Creating representations is as simple as letting the associative rule apply while Agent faces the different situations.
+Enabling the agent to use an associative rule on input neurons has no perceptible effect on the procedural training, so the reactive behaviours remains unchanged.
+Yet, using these inner representations during the simulation inescapably brings changes in the action-selection. 
+Both cases demonstrate how pattern completion helps retrieving known situations so that the relevant actions may be triggered. To the view of the observer, such a process may be manifest as a form of anticipation (in the first situation) or generalisation (in the second situation).

@@ -1,0 +1,303 @@
+/*
+ *   Default
+ */
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    
+    color: #141414;
+    font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+    
+    background: #f1f1f1;
+}
+
+/* Title */
+h1, h2, h3 {
+    margin: 0;
+    
+    line-height: 1.3em;
+    font-family: Lobster, serif;
+    font-weight: 400;
+}
+h1 {font-size: 40px;}
+h2 {font-size: 35px;}
+h3 {font-size: 30px;}
+
+/* Form */
+input[type="number"] {
+    width: 80px;
+}
+
+/* Link */
+.link {
+    color: #2d9ad2;
+    text-decoration: none;
+}
+.link:hover {
+    text-decoration: underline;
+}
+.link--nocolor {
+    color: inherit;
+}
+.link--no-decoration:hover {
+    text-decoration: none;
+}
+
+
+/*
+ *  Scope
+ */
+.s-header-main, .s-footer-main {
+    color: #f1f1f1;
+    text-align: center;
+    
+    background: #141414;
+}
+
+/* Header */
+.s-header-main {
+
+}
+.s-header-main__title {
+    padding: 10px 20px;
+}
+
+/* Nav */
+.s-nav-main {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    
+    min-height: 40px;
+    
+    padding: 0 40px;
+    
+    background: #4c4c4c;
+    
+    overflow: hidden;
+}
+.s-nav-main__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 100%;
+    
+    padding: 0 20px; 
+}
+.s-nav-main__link:hover {
+    text-decoration: none;
+    
+    background: #2d9ad2;
+}
+
+/* Page */
+.s-container-main {
+    margin: 10px 10vw 20px 10vw;
+}
+
+/* Footer */
+.s-footer-main {
+    padding: 10px 20px;
+}
+
+
+/*
+ *  Object
+ */
+/* Wrapper */
+.o-wrapper {
+    margin: 10px;
+}
+.o-wrapper--w-full {
+    margin: 10px 0;
+}
+.o-wrapper--h-full {
+    margin: 0 10px;
+}
+
+.o-wrapper-inside {
+    padding: 10px;
+}
+.o-wrapper-inside--w-full {
+    padding: 10px 0;
+}
+.o-wrapper-inside--h-full {
+    padding: 0 10px;
+}
+
+/* Grid */
+.o-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+}
+.o-grid-gap--s {
+    grid-gap: 10px;
+}
+.o-grid-gap--m {
+    grid-gap: 20px;
+}
+.o-grid__cols--4 {
+    grid-column-end: span 4;
+}
+.o-grid__cols--6 {
+    grid-column-end: span 6;
+}
+
+/*
+ *  Component
+ */
+/* Flash */
+.c-flash {
+    padding: 10px 20px;
+    
+    color: #f1f1f1;
+}
+.c-flash--danger {
+    background: #ff0b21;
+}
+.c-flash--success {
+    background: #52d34a;
+}
+
+/* Form */
+.c-form {
+    
+}
+.c-form__fieldset {
+    padding: 0;
+    
+    border: 0;
+    border-top: 1px solid #000;
+}
+.c-form__fieldset-legend {
+    margin: 0 0 10px 10px;
+    
+    font-size: 1.2em;
+    font-weight: 700;
+}
+.c-form__row {
+    display: flex;
+    flex-direction: column;
+    
+    margin-bottom: 10px;
+}
+.c-form__label-info {
+    color: rgba(14, 14, 14, .5);
+    font-size: .8em;
+    font-style: italic;
+}
+
+/* Button */
+.c-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    height: 40px;
+    
+    padding: 0 20px;
+    
+    border: none;
+    
+    color: #f1f1f1;
+    font-size: 14px;
+    
+    background: #2d9ad2;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    cursor: pointer;
+}
+.c-btn:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.c-btn--large {
+    height: 60px;
+    
+    padding: 0 30px;
+}
+.c-btn--danger {
+    background: #ff0b21;
+}
+
+/* Table */
+.c-table {
+    display: table;
+    
+    border-collapse: collapse;
+}
+.c-table--expend {
+    width: calc(100% - 20px);
+}
+.c-table__td, .c-table__th {
+    padding: 5px 10px;
+    
+    border-bottom: 1px solid #141414;
+    
+    text-align: center;
+}
+
+/* List */
+.c-list {
+    display: flex;
+    flex-direction: column;
+    
+    margin: 0;
+    padding: 0;
+}
+.c-list--row {
+    flex-direction: row;
+}
+.c-list--clean {
+    list-style: none;
+}
+.c-list__item {
+    
+}
+
+/* Cards */
+.c-card {
+    display: flex;
+    flex-direction: column;
+    
+    border: 1px solid #141414;
+}
+.c-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    min-height: 60px;
+    
+    color: #f1f1f1;
+    
+    background: #141414;
+}
+.c-card__content {
+    flex-grow: 1;
+}
+.c-card__footer {
+    
+}
+
+
+/*
+ *  Utility
+ */
+/* Display */
+.u-display--inline {
+    display: inline;
+}
+
+
+
+/*
+ *  Page
+ */

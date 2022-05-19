@@ -1,0 +1,39 @@
+/**
+*   plp_500.txt
+**/
+Force brute : 0.270981 sec.
+Programmation dynamique : 0.078448 sec.
+Force brute 2 : 0.002184 sec.
+Manacher : 0.002364 sec.
+
+/**
+*   plp_1000.txt
+**/
+Force brute : 1.149409 sec.
+Programmation dynamique : 0.318173 sec.
+Force brute 2 : 0.005133 sec.
+Manacher : 0.004614 sec.
+
+/**
+*   plp_2000.txt
+**/
+Force brute : 4.878684 sec.
+Programmation dynamique : 1.314601 sec.
+Force brute 2 : 0.010320 sec.
+Manacher : 0.009218 sec.
+
+/**
+*   plp_4000.txt
+**/
+Force brute : 19.954706 sec.
+Programmation dynamique : 5.304119 sec.
+Force brute 2 : 0.020969 sec.
+Manacher : 0.018343 sec.
+
+/**
+*   plp_8000.txt
+**/
+Force brute : 81.056637 sec.
+Programmation dynamique : 21.920318 sec.
+Force brute 2 : 0.041351 sec.
+Manacher : 0.037681 sec.

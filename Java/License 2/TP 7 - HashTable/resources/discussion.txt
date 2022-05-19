@@ -1,0 +1,9 @@
+TheCortexionist architecture has been presented as a simplified yet realistic model of the human memory. 
+Firstly, procedural and semantic memory are represented, as well as their respective ways of learning.
+Then, and above all, this architecture differs from previous attempts to model the human memory by not following the traditional multi-store design, to the benefit of a more functional approach.
+Indeed, although the multi-store models are still very popular when designing computational models -for the convenient compatibility between the STM/LTM structure and the way information is processed by a computer- Craik and Lockhart argued the lack of neuro-scientific foundations of this theory, making any discussion about the storage of information in the brain futile.
+In their "levels of processing" theory, they rather investigate the way stimuli are processed by the brain.
+Through experimentations, they find out that a collection of random letters is quickly forgotten whereas it can last a whole week if they form a word.
+Their conclusion is that the more processing a memory item involves, the longer it is likely to be held in memory. Furthermore, the stimulus seems to acquire more semantic meaning according to the time granted to this processing.
+These results have led Craik and Lockhart to represent human memory as a multi-layered structure, where the deepest layers might present the greatest complexity or abstraction and the best durability.
+We believe that taking this theory into account constitutes the next step towards making Cortexionist a more realistic model of human memory.

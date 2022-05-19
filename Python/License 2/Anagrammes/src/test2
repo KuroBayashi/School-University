@@ -1,0 +1,124 @@
+from unicodedata import normalize
+from collections import defaultdict, OrderedDict
+
+import sys
+
+
+def format_word(word):
+    """
+    Formate le mot en minuscule et tri les lettres par ordre alphabetique
+
+    :param word: Mot a formater
+
+    :type word: String
+
+    :return: String
+    """
+    return ''.join(sorted(normalize('NFD', word).encode('ascii', 'ignore').lower().decode('ascii')))
+
+
+def load_file(fname, encoding):
+    """
+    Constuit le dictionnaire a partir d'un fichier de mots
+
+    :param fname: Emplacement du fichier
+    :param encoding: Encodage du fichier
+
+    :type fname: string
+    :type encoding: string
+
+    :return: DefaultDict
+    """
+    words_dict = defaultdict(lambda: defaultdict(list))
+
+    with open(fname, 'r', encoding=encoding) as f:
+        for word in f:
+            word = word.rstrip()
+            words_dict[len(word)][format_word(word)].append(word)
+
+    return OrderedDict(
+        sorted(
+            {
+                n: OrderedDict(
+                    sorted(
+                        d.items(),
+                        key=lambda t: t[0]
+                    )
+                ) for n, d in words_dict.items()
+            }.items(),
+            key=lambda t: t[0]
+        )
+    )
+
+
+def est_presque_anagramme(word_1, word_2):
+    for letter in word_1:
+        if letter in word_2:
+            word_2 = word_2.replace(letter, "", 1)
+        else:
+            return -1 if letter > word_2[-1] else 0
+
+    return 1
+
+
+if __name__ == "__main__":
+    # Chargement du dictionnaire
+    FILES = [('../lexiqueODS.txt', 'UTF-8'), ('../liste_de_mots_francais_frgut.txt', 'ISO-8859-1')]
+
+    choix = 0
+    words_dict = load_file(FILES[choix][0], FILES[choix][1])
+    print("Dictionnaire chargé")
+    sys.stdout.flush()
+
+    # Questions
+    presque_words = defaultdict(lambda: defaultdict(list))
+    gap = 1
+
+    for d in words_dict.values():
+        for k, l in d.items():
+            added = False
+            length_k = len(k)
+            length_a = length_k - gap
+            for a in presque_words[length_a].keys():
+                isPA = est_presque_anagramme(a, k)
+                if isPA == 1:
+                    presque_words[length_a][a] += l
+                if isPA != 0:
+                    break
+
+            presque_words[length_k][k] = []
+
+    sol = dict()
+    maxi = 0
+    for d in presque_words.values():
+        for k, l in d.items():
+            if len(l) == maxi:
+                sol[k] = l
+            elif len(l) > maxi:
+                sol.clear()
+                sol[k] = l
+                maxi = len(l)
+
+    for k, l in sol.items():
+        print(k, l)
+
+    n = 0
+    keys = []
+    words_length = []
+    for k, l in sol.items():
+        n = len(l)
+        keys += [k]
+        words_length += [len(k)]
+
+    lst = []
+    for k in keys:
+        lst += words_dict[len(k)][k]
+
+    # Reponse 1
+    print("Mots ayant le nombre maximal de presque-anagramme : {} avec chacun {} presque-anagramme".format(
+        sum(len(l) for l in lst), n
+    ))
+
+    # Reponse 2
+
+    print("Tous les mots ont la même longueur ? ", len(set(words_length)) == 1)

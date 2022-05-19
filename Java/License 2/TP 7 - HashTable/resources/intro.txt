@@ -1,0 +1,10 @@
+Realistic human-like agents are nowadays able to follow goals, plan actions, manipulate objects, show emotions and even converse with humans.
+Despite these agents being endowed with many abilities, the question of intelligence, even for simple animal agents, is still being considered.
+Indeed, intelligence is not necessarily related to the ability to manipulate objects or synthesize speech, follow goals or plan actions. Many machines around us can do that although they may not be considered intelligent.
+From the earliest work of Alan Turing, artificial intelligence (AI) has considered that building an intelligent system implies the imitation of human mental processing, what is referred as cognitive modelling.
+In practice, imitating the way the human mind works involves writing by hand complex algorithms, scripts, or sets of rule, the relevance of which mostly depends on how they are interpreted.
+Lately, radically different research works proposed new ways to understand and consider intelligence. 
+Bongard and Pfeifer introduced the concept of embodiment, which foregrounds the major role that the environment plays in the cognitive abilities of any creature that lives in it.
+In parallel, Jeff Hawkins introduced the memory-prediction framework, a general theory of the neocortex, emphasising the role of memory in intelligence.
+Our research is positioned within an artificial life (AL) context, and builds upon recent work of the team at IRIT. Lassabe and colleagues suggest that endowing a virtual creature with realistic behaviours implies that this creature's morphology emerges from the environment, taking away the need of designing these behaviours by hand.
+Following a similar idea, the work presented in this paper intends to show in addition that the behavioural intelligence of this creature should also be strongly connected to the complexity of the environment, as opposed to relying on human expert cognitive modelling.

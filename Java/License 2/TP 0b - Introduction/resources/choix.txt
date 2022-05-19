@@ -1,0 +1,12 @@
+s0;s0;Se reposer;Vous vous réveillez après une bonne sieste
+s0;s1;Retourner dans la forêt;Vous rebroussez chemin
+s0;s2;Entrer;Vous entrez prudement
+s1;s0;Retourner devant la grotte;Vous retournez devant la grotte
+s2;s4;Avancer dans la grotte;Vous avancez prudemment
+s2;s3;Allumer une torche;Vous allumez votre torche d'aventurier
+s2;s0;Sortir;Vous quittez la grotte
+s3;s4;Prendre le chemin de gauche;Vous empruntez prudemment le chemin de gauche
+s3;s5;Prendre le chemin de droite;Vous empruntez prudemment le chemin de droite
+s3;s0;Sortir;Vous quittez la grotte
+s5;s1;Ouvrir la trappe;Vous empruntez la trappe et vous retrouvez à la surface, à l'orée du bois
+s5;s6;Ouvrir la porte;Vous entrez dans une petite pièce

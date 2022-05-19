@@ -1,0 +1,7 @@
+s0;Devant vous se trouve la caverne. Il fait noir là-dedans. Derrière vous, la forêt d'où vous venez.
+s1;La nuit commence à tomber, mieux vaut ne pas retourner dans cette forêt angoissante.
+s2;Vous vous tenez désormais à l'intérieur de la caverne où règne une quasi obscurité. Il vous semble apercevoir quelque chose d'étincellant plus loin vers le fond. Le trésor ?
+s3;La lumière de la torche révèle en fait deux chemins.
+s4;Horreur ! Ce que vous avez pris pour un trésor en fait une paire d'yeux menaçante ! En essayant de vous enfuir, vous sentez une paire de crocs se refermer sur votre nuque. Votre aventure s'arrête ici.
+s5;Vous avancez dans la grotte, éclairé par votre torche. Soudain, le chemin se termine. Devant vous, une petite porte en bois. Au dessus, une trappe.
+s6;Des centaines de pièces d'or gisent à vos pieds. Vous avez trouvé le trésor perdu du prince Salzao ! Votre quête est terminée !

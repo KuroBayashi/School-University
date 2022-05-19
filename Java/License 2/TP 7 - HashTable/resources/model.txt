@@ -1,0 +1,37 @@
+The Cortexionist model is founded on a simplified hypothesis. 
+The human brain benefits from a long evolution, during which several structures have appeared, enabling the human beings first to behave, then to learn from and adapt to their environment, and finally to become intelligent. We think human beings not only owe this last evolution to the appearance of the cortex, but to the way it interacts with the previous structures.
+Therefore, the model aims to emulate and investigate this interaction by transposing a neocortex-like structure (e.g. able to detect, capture and mirror the structures in the environment) onto a computational limbic system (e.g. a structure responsible for adaptive behaviours).
+From the interaction between these two computational structures, we hypothesis that will be able to observe the emergence of behavioural intelligence.
+
+Control.
+The model we propose here is based on a pure AL agent. 
+The AL view is that the agent's adaptivity is closely tied to the controller's ability to be modelled, through learning or evolution. Connectionist controllers have regularly proved suitable for accurately shaping a desired behaviour.
+Our controller is based on the simplest connectionist controller, a perceptron with two layers: one input layer for the perception and one output layer for the actions.
+The sensors of the agent are bound to neurons from the input layer. In a similar way, neurons from the output layer are bound to the agent's actuators. Feedforward neural connections link the input layer to the output layer. Finally, these connections are tweaked during a training stage by a classic back-propagation algorithm.
+Basically, the action-selection works as follows: a stimuli from the environment activates neurons on the input layer. The resulting signal is spread to the output layer where output neurons are either activated or not, depending on the connections. The activation of output neurons is translated into actions to be performed by the agent in the environment. At the end of the cycle, the agent faces a new situation and the loop starts over again.
+
+Knowledge representations.
+Beyond the reactive control of the agent's behaviour, our model gives emphasis to the ability for building inner representations.
+The use of neural networks is totally appropriate considering they are firstly a metaphor of human nervous structures, such as the brain.
+From the connectionist point of view, memory is distributed and highly associative, which means every piece of knowledge is built from the assembly of neurons operating throughout the brain, as associative networks. 
+These networks are dedicated to reproducing the mechanisms underlying the creation, maintenance and destruction of knowledge.
+To that end, they rely on associative rules, all of which are derived from the original Hebbian rule.
+In our model, for the purpose of seamlessly integrating the memory inside the controller, such a rule applies to existing neurons of the controller. 
+More precisely, it applies to the input layer as knowledge has to be grounded upon perception.
+
+Creating knowledge
+The unsupervised Hebbian rule states that co-activated neurons tend to strengthen their mutual connections, in such a way that the mere exposure to co-occurring features leads to their association into a piece of knowledge.
+In our model, perceiving several features with one another in the environment results in the activation of their related neurons on the input layer, thus leading to the creation of a pattern of knowledge as shown in the figure below. 
+
+Retrieving and generalizing knowledge
+The main interest in creating patterns of knowledge is the possibility of retrieving it subsequently from a few clues. This is achieved by a property inherent in associative networks called pattern completion.
+Interestingly, this property is also the very foundation of the ability to transfer or generalize knowledge.
+Indeed, both these processes rely on the ability to detect the proximity of two patterns of knowledge. As knowledge is distributed into numerous neurons, the similarity of a pattern with another logically relates to the number of neurons shared by both patterns.
+Knowing that, scaling the degree of generalization in our memory can be attained by amending pattern completion, and by adjusting the weight value of each participating connection when building a pattern.
+
+Unlearning knowledge
+Although learning new knowledge is the most important ability of a memory, unlearning is another fundamental property in order to keep this connectionist memory from saturation and to accommodate changes in the environment.
+Although, this work does not cover a comprehensive study about forgetting in neural networks, it appears that the prevailing model considers that knowledge in memory decays in time, so that any material that is not often re-learnt is likely to be forgotten eventually.
+We advocate a slightly different idea. We envisage that forgetting something actually means learning something different, although it is close enough to overwrite the former knowledge. This section explains how this may work in practice.
+Once again, the process must be kept simple enough to be seamlessly integrated into our associative network. 
+We postulate that the simple use of inhibitory connections can help us solve the issue.
